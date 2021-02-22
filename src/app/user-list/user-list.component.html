@@ -1,0 +1,30 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Nom Produit</th>
+            <th scope="col">Utilisateur</th>
+            <th scope="col">Mot passe</th>
+            <th scope="col">Gestionnaire</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listUsers">
+            <td>{{user.prenom}}</td>
+            <td>{{user.login}}</td>
+            <td>{{user.pwd}}</td>
+            <td>{{user.type}}</td>
+            <td>
+                <button class="btn btn-outline-primary" (click)="SelectUser(user)">
+                    <i class="fa fa-hand-pointer-o"></i>
+                </button>&nbsp;
+                <button class="btn btn-outline-danger" (click)="deleteUser()">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+            
+        </tr>
+    </tbody>
+    
+    
+    </table>

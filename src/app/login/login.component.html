@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-3 mx-auto margin">
+            <h3>Authentification</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Utilisateur" [(ngModel)]="myLogin.utilisateur">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Mot de Passe" [(ngModel)]="myLogin.motpasse">
+            </div>
+
+            <button class="btn btn-success" (click)="goToLogin()">
+                <i class="fa fa-send">Connexion</i>
+            </button>
+    </div>
+</div>

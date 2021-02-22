@@ -1,0 +1,29 @@
+<div class="container spacer">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="motCle">
+        <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+    </div>
+   
+    <div class="panel panel-primary">
+        <div class="panel-heading">Liste des Contacts</div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            <tr *ngFor="let c of pageContacts">
+                <td>{{c.id}}</td>
+                <td>{{c.nom}}</td>
+                <td>{{c.prenom}}</td>
+                <td>{{c.email}}</td>
+                <td><a class="clickable" (click)="onEditContact(c.id)">Editer</a></td>
+                <td><a class="clickable" (click)="onDeleteContact(c)">Supprimer</a></td>
+            </tr>
+            </table>
+        </div>
+    </div>
+</div>

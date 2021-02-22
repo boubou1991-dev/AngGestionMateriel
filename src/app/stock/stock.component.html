@@ -1,0 +1,29 @@
+<app-navbar-menu></app-navbar-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <input (keyup)="searchStock()" [(ngModel)]="searchText" type="text" placeholder="Chercher un Produit...."
+                class="form-control">
+
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Nom Produit</th>
+                    <!-- <th>Categorie</th> -->
+                    <th>Date</th>
+                    <th>Quantité</th>
+                </tr>
+                <tr *ngFor="let stock of resultStock">
+                    <td>{{stock.nomProduit}}</td>
+                    <!-- <td>{{stock.Type}}</td> -->
+                    <td>{{stock.dateInsertion}}</td>
+                    <td *ngIf="stock.quantite" class="stockDisponible">{{stock.quantite}}</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+    </div>
+
+</div>

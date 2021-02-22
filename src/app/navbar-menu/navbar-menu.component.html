@@ -1,0 +1,24 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm col-sm-12">
+    <h3 class="my-0 mr-md-auto font-weight-normal">Gestion des Materiels </h3>
+  
+    <a class="btn btn-outline-dark" routerLink="/stock" routerLinkActive="active">
+      <i class="fa fa-send"></i>
+      Stock Disponible</a>
+     &nbsp;
+  <!--  <nav class="my-2 my-md-0 mr-md-3"> --> 
+      <a class="btn btn-outline-dark" routerLink="/operation" routerLinkActive="active">
+       <i class="fa fa-archive"></i> Gestion Operations</a>
+     &nbsp;
+      <a class="btn btn-outline-dark" routerLink="/fournisseur" routerLinkActive="active">Fournisseurs</a>
+      &nbsp;  
+      <a class="btn btn-outline-dark" routerLink="/produit" routerLinkActive="active">
+      <i class="fa fa-newspaper-o"></i>  Produits</a>
+      &nbsp;
+      <a class="btn btn-outline-dark" routerLink="/user" routerLinkActive="active">
+       <i class="fa fa-user-circle-o"></i> Compte d Accès</a>
+      &nbsp;
+      <a class="btn btn-outline-danger" routerLink="/login" routerLinkActive="active">Deconnexion</a>
+  <!-- </nav> -->   
+   
+  </div>
+  <router-outlet></router-outlet>

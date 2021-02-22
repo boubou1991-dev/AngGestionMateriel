@@ -1,0 +1,85 @@
+<app-navbar-menu></app-navbar-menu>
+<div class="container">
+    <h4>Gestion des Produits</h4>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">  <input type="hidden" [(ngModel)]="myproduct.id"  class="form-control"> </div>
+            <div class="form-group"><input type="text" [(ngModel)]="myproduct.nomProduit" placeholder="Nom produit"
+                    class="form-control"></div>
+            <div class="form-group">
+                <label for="label" class="control-label">Categorie</label>
+                <!-- -->
+                <select [(ngModel)]="myproduct.categorie" class="form-control">
+                     <option [value]="prod.nomCategorie" *ngFor="let prod of listCategorie">
+                    
+                    <div> {{prod.nomCategorie}}</div>
+                </option>      
+                </select>
+
+            </div>
+            <div class="form-group"> <input type="number" [(ngModel)]="myproduct.quantite" placeholder="Quantité"
+                    class="form-control"></div>
+            <div class="form-group"><input type="date" [(ngModel)]="myproduct.date" placeholder="Date Insertion" 
+                    class="form-control"></div>
+
+                    <div class="form-group">
+                        <label for="label">Fournisseur</label>
+     <select class="form-control" [(ngModel)]="myproduct.fournisseur">
+        <option [value]="prod.nomFournisseur" *ngFor="let prod of listFournisseur">
+            {{prod.nomFournisseur}}
+        </option>
+    </select>              
+    </div>
+            <button  (click)="persistProduit()" class="btn btn-outline-success"><i class="fa fa-building"></i>
+                
+                Créer</button>&nbsp;
+            <button (click)="updateProduit()" class="btn btn-outline-warning"><i class="fa fa-pencil"></i>
+                Modifier</button>&nbsp;
+            &nbsp;
+            <button class="btn btn-dark" (click)="showForm =! showForm"><i class="fa fa-plus"></i> Achat</button>&nbsp;
+            <br><br>
+            <div *ngIf="showForm">
+                <input type="number" [(ngModel)]="myAchat.depotQuantite" placeholder="Ajout au Stock"
+                    class="form-control">&nbsp;
+                <div class="form-group"> <input type="hidden" [(ngModel)]="myproduct.quantite" placeholder="Quantité"
+                        class="form-control"></div>
+                <button (click)="depotProduit(myproduct)" class="btn btn-success"><i class="fa fa-check"></i>Dépot</button>
+            </div>
+
+        </div>
+
+        <div class="col-md-7">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom Produit</th>
+                      <!--   <th scope="col"> Categorie</th> -->
+                        <th scope="col">Date</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+               <tr *ngFor="let produit of Listproduit">
+                        <td >{{produit.nomProduit}}</td>
+                        
+                        <td >{{produit.dateInsertion}}</td>
+                        <td >{{produit.quantite}}</td>
+                        <td >
+                            <button (click)="EditProduit(produit)" class="btn btn-outline-primary"><i
+                                    class="fa fa-hand-pointer-o"></i></button>&nbsp;
+                            <button (click)="deleteProduit(produit)" class="btn btn-outline-danger"><i
+                                    class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+</div>

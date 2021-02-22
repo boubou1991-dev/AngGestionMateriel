@@ -1,0 +1,56 @@
+<app-navbar-menu></app-navbar-menu>
+<div class="container">
+
+        <div class="col-md-6 mx-auto">
+                <div class="form-group">  <input type="hidden" [(ngModel)]="myUser.iduser"  class="form-control"> </div>
+                <div class="form-group">  <input type="text"  placeholder="Nom Employé" [(ngModel)]="myUser.prenom"  class="form-control"> </div>
+                <div class="form-group">  <input type="text"   placeholder="Utilisateur" [(ngModel)]="myUser.login" class="form-control"> </div>      
+                <div class="form-group">  <input type="password" placeholder="Mot de Passe" [(ngModel)]="myUser.pwd"  class="form-control"> </div>
+                <div class="form-group">  
+                     
+                        <select class="form-control" [(ngModel)]="myUser.type">
+                        <option [value]="prod.nom"  *ngFor="let prod of mySelect">
+                            {{prod.nom}}
+                        </option>
+
+                </select>
+                </div>  
+              <div class="form-group"> 
+                      <button class="btn btn-outline-success" (click)="createUser(myUser)"> Nouveau</button>&nbsp;
+                      <button (click)="updateUser(myUser)" class="btn btn-outline-warning">Modifier</button>
+                                    </div>
+        
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom Produit</th>
+                        <th scope="col">Utilisateur</th>
+                        <th scope="col">Mot passe</th>
+                        <th scope="col">Gestionnaire</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of listUsers">
+                        <td>{{user.prenom}}</td>
+                        <td>{{user.login}}</td>
+                        <td>{{user.pwd}}</td>
+                        <td>{{user.type}}</td>
+                        <td>
+                            <button class="btn btn-outline-primary" (click)="SelectUser(user)">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </button>&nbsp;
+                            <button class="btn btn-outline-danger" (click)="deleteUser(user)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+                
+                
+                </table>
+           <!-- <app-user-list></app-user-list> -->   
+              
+</div>
